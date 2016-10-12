@@ -1,0 +1,24 @@
+{
+  "name": "codefo-feed-instagram",
+  "version": "0.0.1",
+  "description": "@codefo feed from Instagram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codefo/codefo-feed-instagram.git"
+  },
+  "keywords": [
+    "instagram",
+    "feed",
+    "codefo"
+  ],
+  "author": "Gleb Pospelov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codefo/codefo-feed-instagram/issues"
+  },
+  "homepage": "https://github.com/codefo/codefo-feed-instagram"
+}
