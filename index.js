@@ -1,12 +1,17 @@
 const express = require('express');
 const { instagram } = require('instagram-node');
 const get = require('lodash.get');
+const basicAuth = require('basic-auth-connect');
 
 const { version } = require('./package');
 
 
 const app = express();
 const api = instagram();
+
+if (process.env.USERNAME && process.env.PASSWORD) {
+  app.use(basicAuth(process.env.USERNAME, process.env.PASSWORD));
+}
 
 api.use({
   client_id: process.env.CLIENT_ID,
