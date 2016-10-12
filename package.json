@@ -4,6 +4,7 @@
   "description": "@codefo feed from Instagram",
   "main": "index.js",
   "scripts": {
+    "start": "nf start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/codefo/codefo-feed-instagram/issues"
   },
-  "homepage": "https://github.com/codefo/codefo-feed-instagram"
+  "homepage": "https://github.com/codefo/codefo-feed-instagram",
+  "devDependencies": {
+    "foreman": "^2.0.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
