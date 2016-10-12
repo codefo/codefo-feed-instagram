@@ -7,5 +7,5 @@ app.get('/', (request, response) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`App running on port ${ process.env.PORT }`);
+  console.log(`App running on port ${ process.env.PORT }`); // eslint-disable-line
 });
