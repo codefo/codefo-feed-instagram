@@ -30,6 +30,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "instagram-node": "^0.5.8"
   }
 }
