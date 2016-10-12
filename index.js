@@ -2,6 +2,8 @@ const express = require('express');
 const { instagram } = require('instagram-node');
 const get = require('lodash.get');
 
+const { version } = require('./package');
+
 
 const app = express();
 const api = instagram();
@@ -56,6 +58,8 @@ app.get('/callback', (request, response) => {
     }
   });
 });
+
+app.get('/info', (request, response) => response.json({ version }));
 
 app.listen(process.env.PORT, () => {
   console.log(`App running on port ${ process.env.PORT }`); // eslint-disable-line
