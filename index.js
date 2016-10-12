@@ -1,5 +1,6 @@
 const express = require('express');
 const { instagram } = require('instagram-node');
+const get = require('lodash.get');
 
 
 const app = express();
@@ -8,14 +9,31 @@ const api = instagram();
 api.use({
   client_id: process.env.CLIENT_ID,
   client_secret: process.env.CLIENT_SECRET,
+  access_token: process.env.ACCESS_TOKEN,
 });
 
 
 const redirectUri = request => `http://${ request.headers.host }/callback`;
 
+const mappper = data => data.map(m => ({
+  id: m.id,
+  image: get(m, 'images.standard_resolution.url'),
+  created_at: parseInt(m.created_time, 10),
+  link: m.link,
+  text: get(m, 'caption.text'),
+  comments: get(m, 'comments.count', 0),
+  likes: get(m, 'likes.count', 0),
+}));
+
 
 app.get('/', (request, response) => {
-  response.send('Hello, world!');
+  api.user_self_media_recent({}, (error, data) => {
+    if (error) {
+      response.status(503).json({ error: error.body || 'Something wrong' });
+    } else {
+      response.json({ data: mappper(data) });
+    }
+  });
 });
 
 app.get('/auth', (request, response) => {
